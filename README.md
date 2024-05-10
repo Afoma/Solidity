@@ -20,6 +20,18 @@ We use these data types to specify the variables we want to create. For instance
 
 We can specify the number of bytes we want to use in the case of `uint`, `int`, and `bytes`. The maximum is `uint256`, if you don't specify the number, and write it as `uint`, it defaults to `uint256`. You can have `uint8`, `uint16`, `uint64`, and `uint256`. The bigger the `uint` number, the larger the size capacity. This same rule applies to `int`. 
 
-``
+```
+
 bool hasFavoriteNumfaber = true;
-uint256 favou
+uint256 favouriteNumber = 88;
+string favouriteNumberInText = "eighty-eight";
+int256 favouriteInt = -88;
+address myAddress = 0x......B9A;
+bytes favouriteBytes32 = "cat";
+
+```
+Strings are byte objects that are strictly for texts. `bytes` have different sizes `bytes2`, `bytes4`, `bytes8`, ... `bytes32`, etc. `bytes` and `bytes32` are not the same. `bytes32` is the largest bytes.
+
+All these data types have their default values. `unit256` is zero, `bool` is false, etc. So, if you define them without assigning values to them, they will initialise to their default values. For example
+
+`uint256 favouriteNumber; // 0`

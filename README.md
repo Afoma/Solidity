@@ -4,6 +4,8 @@
 
 Specifying the license identifier is important to make licensing and sharing code and IP of the smart contract a lot easier from a legal perspective.
 
+## Data types
+
 Data types are used to create variables in Solidity. The data types in Solidity are `bool`, `uint`, `int`, `string`, `address`, and `bytes`.
 
 `bool`- true or false
@@ -35,3 +37,28 @@ Strings are byte objects that are strictly for texts. `bytes` have different siz
 All these data types have their default values. `unit256` is zero, `bool` is false, etc. So, if you define them without assigning values to them, they will initialise to their default values. For example
 
 `uint256 favouriteNumber; // 0`
+
+## Functions
+
+Functions and variables in SOlidity can have one of four specifiers: public, private, external, and internal.
+- pubic: visible externally and internally (any other contract can call it)
+- private: only visible in the current contract (everything on the blockchain is public, so setting a function or variable to private isn't the best way to hide it.
+- external: only visible externally(only applies to functions, not variables)
+- internal: only visible internally
+
+The gas cost of a transaction is directly proportional to the lines of code a function has. Therefore, the more lines of code a function has, the higher the gas fees.
+
+```
+    function store(uint256 _favouriteNumber) public {
+        favouriteNumber = _favouriteNumber;
+    }
+```
+this is way cheaper than the one below
+
+```
+    function store(uint256 _favouriteNumber) public {
+        favouriteNumber = _favouriteNumber;
+        favouriteNumber = favouriteNumber + 1;
+    }
+```
+

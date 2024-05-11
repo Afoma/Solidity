@@ -60,5 +60,57 @@ this is way cheaper than the one below
         favouriteNumber = _favouriteNumber;
         favouriteNumber = favouriteNumber + 1;
     }
+
 ```
 
+Just like in JavaScript, state variables (global variables in JavaScript) can be called or accessed from anywhere within the contract, however, variables defined within the scope can only be accessed from where they were defined.
+
+```
+contract SimpleStorage {
+
+    uint256 public favouriteNumber;
+
+    function store(uint256 _favouriteNumber) public {
+        favouriteNumber = _favouriteNumber;
+    }
+
+    function retrieve() public view returns(uint256){
+        return favouriteNumber;
+    }
+}
+
+```
+Solidity has a special keyword which notates functions that don't actually have to run, update the blockchain or send a transaction for you to call them. Those two keywords are `view` and `pure`. A function marked `view` means we are only going to read state on the blockchain. In the `retrieve` function, we are only going to read what the `favouriteNumber` is. 
+The `store` function updates the blockchain and sends a transaction, it doesn't read. Once you add the `view` keyword, you've removed the inability of that function to modify the blockchain and send a transaction.
+
+```
+contract SimpleStorage {
+
+    uint256 public favouriteNumber;
+
+    function store(uint256 _favouriteNumber) public {
+        favouriteNumber = _favouriteNumber;
+    }
+
+    function retrieve() public view returns(uint256){
+        favouriteNumber = favouriteNumber + 1;
+        return favouriteNumber;
+    }
+}
+
+```
+The code above will not deploy because of line 96 (error message: function cannot be declared as `view` because this expression (potentially) modifies state), so we will either have to remove that line or the `view` keyword.
+The `view` keyword doesn't only disallow modifying state but also reading from state or storage. Calling a `view` or `pure` function doesn't cost gas because we are not modifying state. However, if a function that modifies state calls a `view` or `pure` function, it will cost gas. The code below demonstrates this.
+
+```
+function store(uint256 _favouriteNumber) public {
+    favouriteNumber = _favouriteNumber;
+    retrieve();
+}
+
+function retrieve() public view returns(uint256){
+    return favouriteNumber;
+}
+
+```
+As for the `returns` keyword, it just says that whenever we call the `retrieve` function we want to be given the variable of type `uint256`.

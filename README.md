@@ -99,7 +99,7 @@ contract SimpleStorage {
 }
 
 ```
-The code above will not deploy because of line 96 (error message: function cannot be declared as `view` because this expression (potentially) modifies state), so we will either have to remove that line or the `view` keyword.
+The code above will not deploy because of the code `favouriteNumber = favouriteNumber + 1;` (error message: function cannot be declared as `view` because this expression (potentially) modifies state), so we will either have to remove that line or the `view` keyword.
 The `view` keyword doesn't only disallow modifying state but also reading from state or storage. Calling a `view` or `pure` function doesn't cost gas because we are not modifying state. However, if a function that modifies state calls a `view` or `pure` function, it will cost gas. The code below demonstrates this.
 
 ```

@@ -40,11 +40,11 @@ All these data types have their default values. `unit256` is zero, `bool` is fal
 
 ## Functions
 
-Functions and variables in SOlidity can have one of four specifiers: public, private, external, and internal.
-- pubic: visible externally and internally (any other contract can call it)
-- private: only visible in the current contract (everything on the blockchain is public, so setting a function or variable to private isn't the best way to hide it.
-- external: only visible externally(only applies to functions, not variables)
-- internal: only visible internally
+Functions and variables in Solidity can have one of four specifiers: public, private, external, and internal.
+- pubic: visible externally and internally (any other contract or person can call it)
+- private: only visible in the current contract (everything on the blockchain is public, so setting a function or variable to private isn't the best way to hide it, it only prevents other contracts from reading or modifying its information).
+- external: only visible externally i.e. another function inside this smart contract can't call it(only applies to functions, not variables)
+- internal: only visible internally, i.e. only the current contract and its child contract can call it, hence, other contracts or people aren't allowed to call it (if you don't specify visibility for a variable or function, it will default to internal).
 
 The gas cost of a transaction is directly proportional to the lines of code a function has. Therefore, the more lines of code a function has, the higher the gas fees.
 

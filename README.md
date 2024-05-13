@@ -36,7 +36,7 @@ Strings are byte objects that are strictly for texts. `bytes` have different siz
 
 All these data types have their default values. `unit256` is zero, `bool` is false, etc. So, if you define them without assigning values to them, they will initialise to their default values. For example
 
-`uint256 favouriteNumber; // 0`
+`uint256 myFavouriteNumber; // 0`
 
 ## Functions
 
@@ -50,15 +50,15 @@ The gas cost of a transaction is directly proportional to the lines of code a fu
 
 ```
     function store(uint256 _favouriteNumber) public {
-        favouriteNumber = _favouriteNumber;
+        myFavouriteNumber = _favouriteNumber;
     }
 ```
 this is way cheaper than the one below
 
 ```
     function store(uint256 _favouriteNumber) public {
-        favouriteNumber = _favouriteNumber;
-        favouriteNumber = favouriteNumber + 1;
+        myFavouriteNumber = _favouriteNumber;
+        myFavouriteNumber = favouriteNumber + 1;
     }
 
 ```
@@ -68,14 +68,14 @@ Just like in JavaScript, state variables (global variables in JavaScript) can be
 ```
 contract SimpleStorage {
 
-    uint256 public favouriteNumber;
+    uint256 public myFavouriteNumber;
 
     function store(uint256 _favouriteNumber) public {
-        favouriteNumber = _favouriteNumber;
+        myFavouriteNumber = _favouriteNumber;
     }
 
     function retrieve() public view returns(uint256){
-        return favouriteNumber;
+        return myFavouriteNumber;
     }
 }
 
@@ -86,15 +86,15 @@ The `store` function updates the blockchain and sends a transaction, it doesn't 
 ```
 contract SimpleStorage {
 
-    uint256 public favouriteNumber;
+    uint256 public myFavouriteNumber;
 
     function store(uint256 _favouriteNumber) public {
-        favouriteNumber = _favouriteNumber;
+        myFavouriteNumber = _favouriteNumber;
     }
 
     function retrieve() public view returns(uint256){
-        favouriteNumber = favouriteNumber + 1;
-        return favouriteNumber;
+        myFavouriteNumber = favouriteNumber + 1;
+        return myFavouriteNumber;
     }
 }
 
@@ -104,13 +104,30 @@ The `view` keyword doesn't only disallow modifying state but also reading from s
 
 ```
 function store(uint256 _favouriteNumber) public {
-    favouriteNumber = _favouriteNumber;
+    myFavouriteNumber = _favouriteNumber;
     retrieve();
 }
 
 function retrieve() public view returns(uint256){
-    return favouriteNumber;
+    return myFavouriteNumber;
 }
 
 ```
 As for the `returns` keyword, it just says that whenever we call the `retrieve` function we want to be given the variable of type `uint256`.
+
+## Array
+ We have just one favourite number in the code base, and if we want to create a list of favourite numbers, we would have to create an array of favourite numbers. 
+
+`uint256[] listOfFavouriteNumbers`
+
+To specify who the particular person in our array is, we should create a custom type known as `struct`. In Solidity, we can make our custom types using the `struct` keyword. You might liken it to an `object` in JavaScript. The name of the type is the name written after the `struct` keyword. For example, `struct Girl`, the name of this custom type is Girl, so it is a variable Girl of type Girl, like how we have type `bool`, `string`, etc. 
+
+```
+struct Person{
+        uint256 favouriteNumber;
+        string name;
+        bool isCool;
+    }
+
+```
+Since we have our own new type,

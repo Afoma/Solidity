@@ -52,6 +52,8 @@ The gas cost of a transaction is directly proportional to the lines of code a fu
     function store(uint256 _favouriteNumber) public {
         myFavouriteNumber = _favouriteNumber;
     }
+// whenever the function above is called, it sets favouriteNumber to
+// _myFavouriteNumber
 ```
 this is way cheaper than the one below
 

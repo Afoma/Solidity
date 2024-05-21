@@ -40,6 +40,15 @@ All these data types have their default values. `unit256` is zero, `bool` is fal
 
 ## Functions
 
+Before we delve into functions in Solidity, let us briefly understand the basic structure of a function. `funtion` is the keyword that is used to create a function, `store` is the name of the function and whenever it is called, the commands in the function get executed, `uint256 _favoriteNumber`
+is the parameter that is passed into the function. When a function is called, it is called with the parameter. Whenever the function above is called, it sets `favouriteNumber` to `_myFavouriteNumber`.
+
+```
+    function store(uint256 _favouriteNumber) public {
+        myFavouriteNumber = _favouriteNumber;
+    }
+```
+
 Functions and variables in Solidity can have one of four specifiers: public, private, external, and internal.
 - pubic: visible externally and internally (any other contract or person can call it)
 - private: only visible in the current contract (everything on the blockchain is public, so setting a function or variable to private isn't the best way to hide it, it only prevents other contracts from reading or modifying its information).

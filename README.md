@@ -130,6 +130,21 @@ struct Person{
     }
 
 ```
-Since we have our own new type,we could create a variable of type `Person` the same way we created a variable of type `myFavouriteNumber`. When  working with custom types we have to specify on the left and right side what type it is like so:
+Since we have our new type, we could create a variable of type `Person` the same way we created a variable of type `myFavouriteNumber`. When  working with custom types we have to specify on the left and right side what type it is like so:
 
-`Person public myFriend = Person()
+`Person public myFriend = Person({favouriteNumber: 7,name: "Pat")`
+
+`Pat` is a `Person` with a favourite number of `7` and a name of `Pat`they are assigned in the order they are defined in the `struct Person`. When we compile and deploy it, we will see that `favouriteNumber` has an index of 0, `name` has an index of 1, and `isCool` has an index of 2.
+If we want to include many people and their favorite numbers, we could add them like this:
+
+```
+
+Person public myFriend = Person({favouriteNumber: 7,name: "Pat")
+Person public myFriend = Person({favouriteNumber: 8,name: "Tom)
+Person public myFriend = Person({favouriteNumber: 9,name: "Kat")
+Person public myFriend = Person({favouriteNumber: 10,name: "Tim")
+
+```
+However, this is not a great way to create lists of people. So we can create a new array or list of persons
+
+` Person[] public listOfPeople;

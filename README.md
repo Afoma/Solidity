@@ -120,7 +120,7 @@ As for the `returns` keyword, it just says that whenever we call the `retrieve` 
 
 `uint256[] listOfFavouriteNumbers`
 
-To specify who the particular person in our array is, we should create a custom type known as `struct`. In Solidity, we can make our custom types using the `struct` keyword. You might liken it to an `object` in JavaScript. The name of the type is the name written after the `struct` keyword. For example, `struct Girl`, the name of this custom type is Girl, so it is a variable Girl of type Girl, like how we have type `bool`, `string`, etc. 
+To specify who the particular person in our array is, we should create a custom type known as `struct`. In Solidity, we can make our custom types using the `struct` keyword. You might liken it to an `object` in JavaScript. The name of the type is the name written after the `struct` keyword. For example, `struct Girl`, the name of this custom type is Girl, so it is a variable of type Girl, like how we have type `bool`, `string`, etc. 
 
 ```
 struct Person{
@@ -130,4 +130,6 @@ struct Person{
     }
 
 ```
-Since we have our own new type,
+Since we have our own new type,we could create a variable of type `Person` the same way we created a variable of type `myFavouriteNumber`. When  working with custom types we have to specify on the left and right side what type it is like so:
+
+`Person public myFriend = Person()

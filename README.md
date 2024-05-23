@@ -160,6 +160,7 @@ However, this is not a great way to create lists of people. So we can create a n
 
 `Person[] public listOfPeople;` 
 
+The structure of the array above is (type Person, just like we could have type uint256 or type struct),array, visiblity = public, name = listOfPeople.
 The array above is dynamic (and also empty). It is called a dynamic array because it can grow bigger or shrink to be smaller. If we want to create a static array, we would write it like this:
 
 `Person[3] public listOfPeople;`

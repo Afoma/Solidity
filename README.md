@@ -91,7 +91,7 @@ contract SimpleStorage {
 }
 
 ```
-Solidity has a special keyword which notates functions that don't actually have to run, update the blockchain or send a transaction for you to call them. Those two keywords are `view` and `pure`. A function marked `view` means we are only going to read state on the blockchain. In the `retrieve` function, we are only going to read what the `favouriteNumber` is. 
+Solidity has a special keyword that notates functions that don't actually have to run, update the blockchain or send a transaction for you to call them. Those two keywords are `view` and `pure`. A function marked `view` means we are only going to read state on the blockchain. In the `retrieve` function, we are only going to read what the `favouriteNumber` is. 
 The `store` function updates the blockchain and sends a transaction, it doesn't read. Once you add the `view` keyword, you've removed the inability of that function to modify the blockchain and send a transaction.
 
 ```
@@ -111,7 +111,7 @@ contract SimpleStorage {
 
 ```
 The code above will not deploy because of the code `favouriteNumber = favouriteNumber + 1;` and it will display the error message: " function cannot be declared as `view` because this expression (potentially) modifies state", so we will either have to remove that line or the `view` keyword.
-The `view` keyword doesn't only disallow modifying state but also reading from state or storage. Calling a `view` or `pure` function doesn't cost gas because we are not modifying state. However, if a function that modifies state calls a `view` or `pure` function, it will cost gas. The code below demonstrates this.
+The `view` keyword not only allows modifying state but also reading from state or storage. Calling a `view` or `pure` function doesn't cost gas because we are not modifying state. However, if a function that modifies state calls a `view` or `pure` function, it will cost gas. The code below demonstrates this.
 
 ```
 function store(uint256 _favouriteNumber) public {
@@ -131,7 +131,7 @@ As for the `returns` keyword, it just says that whenever we call the `retrieve` 
 
 `uint256[] listOfFavouriteNumbers`
 
-To specify who the particular person in our array is, we should create a custom type known as `struct`. In Solidity, we can make our custom types using the `struct` keyword. You might liken it to an `object` in JavaScript. The name of the type is the name written after the `struct` keyword. For example, `struct Girl`, the name of this custom type is Girl, so it is a variable of type Girl, like how we have type `bool`, `string`, etc. 
+To specify who the particular person in our array is, we should create a custom type known as `struct`. In Solidity, we can make our custom types using the `struct` keyword. You might liken it to an `object` in JavaScript. The name of the type is the name written after the `struct` keyword. For example, `struct Girl`. The name of this custom type is Girl, so it is a variable of type Girl, like how we have type `bool`, `string`, etc. 
 
 ```
 struct Person{
@@ -160,7 +160,7 @@ However, this is not a great way to create lists of people. So we can create a n
 
 `Person[] public listOfPeople;` 
 
-The structure of the array above is (type Person, just like we could have type uint256 or type struct),array, visiblity = public, name = listOfPeople.
+The structure of the array above is (type Person, just like we could have type uint256 or type struct), array, visibility = public, name = listOfPeople.
 The array above is dynamic (and also empty). It is called a dynamic array because it can grow bigger or shrink to be smaller. If we want to create a static array, we would write it like this:
 
 `Person[3] public listOfPeople;`

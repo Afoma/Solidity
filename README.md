@@ -175,3 +175,23 @@ function addPerson (string memory _name, uint256 _favouriteNumber){
 
 ```
 `(Person(_favouriteNumber,_name)` is a complete Person that was created inside the function, so that instead of writing `listOfPeople.push(_favouriteNumber, _name)`, we group and push those values as a complete object. 
+
+## Memory storage and calldata
+
+There are six places you can store data in Solidity:
+- Stack
+- Memory
+- Storage
+- Calldata
+- Code
+- Logs
+
+But we will be delving into calldata, memory, and storage.
+
+```
+function addPerson (string memory _name, uint256 _favouriteNumber){
+    listOfPeople.push(Person(_favouriteNumber,_name)
+
+```
+Bearing the above example in mind, calldata and memory mean that the variable (_name) only exists temporarily. It will only exist for the duration of the function call. If we call `addPerson("Patrick",7)`, it will reflect in the `listOfPeople` as `0: uint256: favouriteNumber 7`, `1:
+string: name Patrick`, however, it exists only in memory and 

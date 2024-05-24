@@ -166,3 +166,12 @@ The array above is dynamic (and also empty). It is called a dynamic array becaus
 `Person[3] public listOfPeople;`
 
 This tells the compiler that the size of the array must not exceed 3. So only a maximum of three values can fit into the array. 
+
+Instead of manually updating the array by writing `Person[] public listOfPeople.push(7, "Pat");`, it's best to create a function that once it is called automatically updates the array. So we create the function:
+
+```
+function addPerson (string memory _name, uint256 _favouriteNumber){
+    listOfPeople.push(Person(_favouriteNumber,_name)
+
+```
+`(Person(_favouriteNumber,_name)` is a complete Person that was created inside the function, so that instead of writing listOfPeople.push(_favouriteNumber, _name), we push it values as a complete object. 

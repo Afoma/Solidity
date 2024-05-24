@@ -174,4 +174,4 @@ function addPerson (string memory _name, uint256 _favouriteNumber){
     listOfPeople.push(Person(_favouriteNumber,_name)
 
 ```
-`(Person(_favouriteNumber,_name)` is a complete Person that was created inside the function, so that instead of writing listOfPeople.push(_favouriteNumber, _name), we push it values as a complete object. 
+`(Person(_favouriteNumber,_name)` is a complete Person that was created inside the function, so that instead of writing `listOfPeople.push(_favouriteNumber, _name)`, we group and push those values as a complete object. 

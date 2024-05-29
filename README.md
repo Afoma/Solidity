@@ -111,7 +111,7 @@ contract SimpleStorage {
 
 ```
 The code above will not deploy because of the code `favouriteNumber = favouriteNumber + 1;` and it will display the error message: " function cannot be declared as `view` because this expression (potentially) modifies state", so we will either have to remove that line or the `view` keyword.
-The `view` keyword not only allows modifying state but also reading from state or storage. Calling a `view` or `pure` function doesn't cost gas because we are not modifying state. However, if a function that modifies state calls a `view` or `pure` function, it will cost gas. The code below demonstrates this.
+The `view` keyword disallows modifying state and reading from state or storage. Calling a `view` or `pure` function doesn't cost gas because we are not modifying state. However, if a function that modifies state calls a `view` or `pure` function, it will cost gas. The code below demonstrates this.
 
 ```
 function store(uint256 _favouriteNumber) public {

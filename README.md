@@ -193,5 +193,15 @@ function addPerson (string memory _name, uint256 _favouriteNumber){
     listOfPeople.push(Person(_favouriteNumber,_name)
 
 ```
-Bearing the above example in mind, calldata and memory mean that the variable (_name) only exists temporarily. It will only exist for the duration of the function call. If we call `addPerson("Patrick",7)`, it will reflect in the `listOfPeople` as `0: uint256: favouriteNumber 7`, `1:
-string: name Patrick`, however, it exists only in memory and 
+Bearing the above example in mind, calldata and memory mean that the variable (_name) only exists temporarily- we can't access it again after the function has been called. It will only exist for the duration of the function call. If we call `addPerson("Patrick",7)`, we wouldn't be able to use it again after it has been called.
+
+Difference and similarity between `calldata` and `memory``
+
+A `memory` variable can be changed or modified but a `calldata` variable can never be modified. However, they are both used for temporary variables. 
+
+A `storage` variable is a permanent variable that can be modified. Every `state` variable (variables that are created outside a function) is a storage variable. 
+
+We put the `memory` and `calldata` keywords only in strings, arrays, and structs, not numbers (uint256). In Solidity, a string is an array of bytes.
+
+## Mappings
+

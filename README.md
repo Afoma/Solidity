@@ -205,3 +205,10 @@ We put the `memory` and `calldata` keywords only in strings, arrays, and structs
 
 ## Mappings
 
+When we want to find an item in an array, we might be tempted to loop through the array to search for the item one by one. This could be an endless task if we are working with a large array. That is where mapping comes in. Mapping is best understood as a dictionary where we have to search for something using the key type (what we are searching for) which points to the data type of data that is linked with each key.
+
+"Think of mapping in coding like a dictionary: each word in a dictionary has a unique meaning or a chunk of text associated with it. Similarly, a mapping in code is essentially a set of keys with each key returning a unique set of information. Thus, if you look up a word or a 'string' in coding terms, the corresponding output will be the text or 'number' associated only with that string."- Cyfrin Updraft
+
+Below is how to define a mapping- keyword 'mapping', the key type, the data type of the data to be linked with each key and the visibility type.
+
+`mapping(string => uint256) public nameToFavoriteNumber`

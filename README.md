@@ -215,10 +215,10 @@ Below is how to define a mapping- keyword 'mapping', the key type, the data type
 
 ## Summary
 
-EVM- Ethereum Virtual Machine. SOlidity code is deployed on EVM. Apart from the ethereum network, Solidity can be deployed on EVM-compatible Layer 2 network. They are Polygon, Arbitrum, Optimism, and Zksync. 
+EVM- Ethereum Virtual Machine is standard for deploying a smart contract to the blockchain. SOlidity code is deployed on EVM. Apart from the ethereum network, Solidity can be deployed on EVM-compatible Layer 2 network. They are Polygon, Arbitrum, Optimism, and Zksync. 
 
 In a smart contract, a contract operates like a class, 
 
 In Solidity,you can create a mapping which operates like a dictionary or hash table. A variable or function that has the `public` keyword means that it will be visible on the blockchain, `pure` and `view` means it can't modify the blockchain. A smart contract has functions that can store variables, retrieve variables, add users to the blockchain, and display the list of users in the blockchain. 
 
-Solidity handles storage by saving them in the right memory location.  variables are saved in temporary locations and it applies only to strings, structs, and arrays which are stored in temporary memory locations- `calldata` and `memory`, while state variables are stored in `storage` location.
+Solidity handles storage of function constituents by saving them in the right memory location. Local variables are saved in temporary locations and it applies only to strings, structs, and arrays which are stored in temporary memory locations- `calldata` and `memory`, while state variables are stored in `storage` location.

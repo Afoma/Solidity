@@ -49,6 +49,11 @@ is the parameter that is passed into the function. When a function is called, it
     }
 ```
 
+The format for creating a type-variable, function, etc, in Solidity is
+
+` type visibility name`
+example `uint256 public favouriteNumber`
+
 Functions and variables in Solidity can have one of four specifiers: public, private, external, and internal.
 - pubic: visible externally and internally (any other contract or person can call it)
 - private: only visible in the current contract (everything on the blockchain is public, so setting a function or variable to private isn't the best way to hide it, it only prevents other contracts from reading or modifying its information).

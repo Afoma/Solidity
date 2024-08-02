@@ -18,7 +18,7 @@ Data types are used to create variables in Solidity. The data types in Solidity 
 
 `bytes`
 
-We use these data types to specify the variables we want to create. For instance, `hasFavoriteNumber` is a variable name whose function we don't know. If we initialise it as `bool hasFavoriteNumber;` then we know that it was created to tell whether the variable has or is the favourite number. If we initialise it as `uint hasFavoriteNumber;` then we know that it is a positive whole number that displays the favourite number, if we initialise it as `int hasFavoriteNumber` we will know that it is a whole number that could be positive or negative, etc. If we write `unit hasFavoriteNumber = 88`, it means that the favourite number is 88. 
+We use these data types to specify the variables we want to create. For instance, `hasFavoriteNumber` is a variable name whose function we don't know. If we initialise it as `bool hasFavoriteNumber;` then we know that it was created to tell whether the variable has the favourite number. If we initialise it as `uint hasFavoriteNumber;` then we know that it is a positive whole number that displays the favourite number, if we initialise it as `int hasFavoriteNumber` we will know that it is a whole number that could be positive or negative, etc. If we write `unit hasFavoriteNumber = 88`, it means that the favourite number is 88. 
 
 We can specify the number of bytes we want to use in the case of `uint`, `int`, and `bytes`. The maximum is `uint256`, if you don't specify the number, and write it as `uint`, it defaults to `uint256`. You can have `uint8`, `uint16`, `uint64`, and `uint256`. The bigger the `uint` number, the larger the size capacity. This same rule applies to `int`. 
 

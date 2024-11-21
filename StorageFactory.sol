@@ -5,9 +5,10 @@ import {SimpleStorage} from "contracts/SimpleStorage.sol";
 
 contract StorageFactory{
 
-    SimpleStorage public simpleStorage;
+    SimpleStorage[] public listOfSimpleStorageContracts;
 
     function createSimpleStorage() public{
-        simpleStorage = new SimpleStorage();
+        SimpleStorage newSimpleStorage = new SimpleStorage();
+        listOfSimpleStorageContracts.push(newSimpleStorage);
     }
 }

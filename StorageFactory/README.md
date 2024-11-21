@@ -18,4 +18,21 @@ contract StorageFactory{
 }
 ```
 However, the deployed contracts are not beig saved, so we will rewrite some parts of the code.
+```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+import {SimpleStorage} from "contracts/SimpleStorage.sol";
+
+contract StorageFactory{
+
+    SimpleStorage[] public listOfSimpleStorageContracts;
+
+    function createSimpleStorage() public{
+        SimpleStorage newSimpleStorage = new SimpleStorage();
+        listOfSimpleStorageContracts.push(newSimpleStorage);
+    }
+}
+```
+notice that ` SimpleStorage newSimpleStorage` doesn't have memory in between. this is because contracts are not deployed to memory but to the blockchain, hence to storage references and not memory.
 

@@ -35,4 +35,4 @@ contract StorageFactory{
 }
 ```
 notice that ` SimpleStorage newSimpleStorage` doesn't have memory in between. this is because contracts are not deployed to memory but to the blockchain, hence to storage references and not memory.
-
+for us to interact with other contracts or some parts of another contract, we need two things- address and ABI (Application Binary Interface). the ABI tells our code exactly how it can interact with another contract. 

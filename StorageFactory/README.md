@@ -38,4 +38,11 @@ notice that ` SimpleStorage newSimpleStorage` doesn't have memory in between. th
 for us to interact with other contracts or some parts of another contract, we need two things- address and ABI (Application Binary Interface). the ABI tells our code exactly how it can interact with another contract. 
 
 
-in the first part of a fubnction, if there will be parameters, they will have names but in a return function, the paramters or the things in the bracket won't have names but they will only be displayed as the variable types like `uint256`, `string memory`, `address`, etc.
+in the first part of a fubnction, if there will be parameters, they will have names but in a return function, the paramters or the things in the bracket won't have names but they will only be displayed as the variable types like `uint256`, `string memory`, `address`, etc, like this
+```
+    function retrieve() public view returns (string memory, uint256) {
+        return (names, numbers);
+    }
+```
+
+

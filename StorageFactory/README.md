@@ -72,3 +72,20 @@ contract StorageFactory{
 }
 ```
 know that the `.store` and `.retrieve` you see in the code aren't written there as default solidity methods, rather, they are written there to access `function store` and `function retrieve` in the SimpleStorage contract.
+
+do you know why this function has a parameter in it
+
+function sfGet(uint256 _simpleStorageIndex) public view returns(uint256){
+        return listOfSimpleStorageContracts[_simpleStorageIndex].retrieve();
+    }
+
+and this one doesn't have
+
+    function getlistOfSimpleStorageContractsLength() public view returns(uint256){
+        return listOfSimpleStorageContracts.length;
+    }
+it is because in Solidity, a parameter is added to a function when you need to pass some data from outside the contract into it. The `_simpleStorageIndex` in `sfGet()` serves as an identifier for which specific instance of `SimpleStorage` you want to retrieve information about.
+The difference between these two functions lies in what they're trying to achieve:
+
+`getlistOfSimpleStorageContractsLength()`: This function simply returns the length (i.e., number) of contracts stored in an array (`listOfSimpleStorageContracts`). It doesn't need any specific data from outside, so it has no parameters.
+`sfGet(uint256 _simpleStorageIndex)`: Here, you're trying to retrieve information about a particular contract instance based on its index within the `listOfSimpleStorageContracts` array. This requires knowing which index (`_simpleStorageIndex`) corresponds to that specific contract.

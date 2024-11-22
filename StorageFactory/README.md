@@ -47,3 +47,28 @@ in the first part of a function, if there will be parameters, they will have nam
 
 it is the data set `string, uint256` that is written in the `returns` statement that tells the compiler what the function will be returning and not by the name `names, numbers` the `return` keyword intends to return because that is just an english name and the compiler converts code and not english to byte-readable code. however, it is best practise to give meaningful names so that the code will be easily understandable by a human being.
 ```
+// SPDX-License-Identifier: MIT
+pragma solidity ^0.8.24;
+
+import {SimpleStorage} from "contracts/SimpleStorage.sol";
+
+contract StorageFactory{
+
+    SimpleStorage[] public listOfSimpleStorageContracts;
+
+    function createSimpleStorage() public{
+        SimpleStorage newSimpleStorage = new SimpleStorage();
+        listOfSimpleStorageContracts.push(newSimpleStorage);
+    }
+    function sfStore(uint256 _simpleStorageIndex, uint256 _newSimpleStorageNumber) public{
+        SimpleStorage mySimpleStorage = listOfSimpleStorageContracts[_simpleStorageIndex];
+        mySimpleStorage.store(_newSimpleStorageNumber);
+    }
+    function sfGet(uint256 _simpleStorageIndex) public view returns(uint256){
+        SimpleStorage mySimpleStorage = listOfSimpleStorageContracts[_simpleStorageIndex];
+        return mySimpleStorage.retrieve();
+    }
+    
+}
+```
+know that the `.store` and `.retrieve` you see in the code aren't written there as default solidity methods, rather, they are written there to access `function store` and `function retrieve` in the SimpleStorage contract.

@@ -38,6 +38,8 @@ contract SimpleStorage {
     // the name of the person that I'm searching for
 
     function addPerson(string memory _name, uint256 _favouriteNumber) public {
+        // Person memory newPerson = Person(_name, _favNumber);
+        // listOfPeople.push(newPerson);
         listOfPeople.push(Person(_favouriteNumber,_name));
         nameToFavouriteNumber[_name] = _favouriteNumber;
     }

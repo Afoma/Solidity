@@ -19,5 +19,9 @@ contract StorageFactory{
         SimpleStorage mySimpleStorage = listOfSimpleStorageContracts[_simpleStorageIndex];
         return mySimpleStorage.retrieve();
     }
+        function getlistOfSimpleStorageContractsLength() public view returns(uint256){
+        return listOfSimpleStorageContracts.length;
+    }
+}
     
 }

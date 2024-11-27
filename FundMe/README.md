@@ -2,3 +2,5 @@ When sending eth or money or transaction on the blockchain, their is always a 'v
 Even in our Metamask, when sending transactions between two accounts that we own, the amount field populates the value field in our transaction.
 The 'value' is the amount of native cryptocurrency (Wei) that gets sent with every transaction.
 A contract can function as a wallet address, we can send money to it, withdraw from it, interact with it, etc. If we want to make a contract to have the capacity of being used to pay or send funds, we will make then executing function to be payable by adding the `payable` keyword to the function.
+1e18 means 1 ETH and also means 1000000000000000000 wei
+the message after the comma in the require method means that if the transaction didn't go through, that message would be displayed.

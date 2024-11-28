@@ -13,7 +13,7 @@ A contract can function as a wallet address, we can send money to it, withdraw f
 the message after the comma in the require method means that if the transaction didn't go through, that message would be displayed.
 
 What is a revert? A revert undoes any action that has been done and sends the remaining gas associated with that transaction back.
-the require statement within the fund function is the part of the code that can cause a revert. 
+the require statement within the fund function is the part of the code that can cause a revert. If we want to force a transaction to do something and make it fail if it does't do that thing we will use the `require` keyword.
 
 `require(msg.value > 1e18, "didn't send enough ETH");`
 The condition checks if the sent Ether (msg.value) is greater than 10^18  wei, i.e., 1 ETH.

@@ -32,3 +32,4 @@ msg.value = 0.5e18 does not satisfy the condition 0.5e18 > 1e18.
 The require statement causes the transaction to revert, the state is rolled back, and the user receives an error message.
 
 The contract will revert if the fund function is called with ≤1 ETH. The revert is caused by the require statement failing its condition.
+If we want to get the real world or native currency equivalent of the cryptocurrency like ETH, Wei, or Gwei, that we're working with, we will have to use oracles (like Chainlink) because smart contracts are "unable to external systems, data feeds, APIs, existing payment systems, or any off-chain resources on their own".

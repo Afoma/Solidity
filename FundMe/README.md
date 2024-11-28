@@ -34,4 +34,5 @@ The require statement causes the transaction to revert, the state is rolled back
 The contract will revert if the fund function is called with ≤1 ETH. The revert is caused by the require statement failing its condition.
 If we want to get the real world or native currency equivalent of the cryptocurrency like ETH, Wei, or Gwei, that we're working with, we will have to use oracles (like Chainlink) because smart contracts are "unable to external systems, data feeds, APIs, existing payment systems, or any off-chain resources on their own".
 
-Blockchains are deterministic systems, this means that they can't interact with the real world- they don't know the value of ethereum in fiat currencies, who the president is, what the weather or time is, unlike centralised servers that quickly interact with APIs and other resources.
+Blockchains are deterministic systems, this means that they can't interact with the real world- they don't know the value of ethereum in fiat currencies, who the president is, what the weather or time is, unlike centralised servers that quickly interact with APIs and other resources, they can't even interact with, for example, an artificial intelligence model you want to implement in the system you are creating, and this is because blockchains are deterministic systems in the sense that they have to reach a consensus.
+Block

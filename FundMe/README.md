@@ -38,3 +38,4 @@ Blockchains are deterministic systems, this means that they can't interact with 
 The different nodes that characterise a blockchain have to reach a consensus if you want to implement any feature so that one node won't have the feature you want to implement, while the others don't. This is known as the Oracle connectivity problem.
 
 We won't get our external data from centralised oracles or nodes or else we would fail the purpose of building smart wallets and establishing trust. This is because centralised oracles introduce a point of failure.
+This is where decentralised oracles like Chainlink come to play.

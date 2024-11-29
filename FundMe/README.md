@@ -39,4 +39,4 @@ The different nodes that characterise a blockchain have to reach a consensus if 
 
 We won't get our external data from centralised oracles or nodes or else we would fail the purpose of building smart wallets and establishing trust. This is because centralised oracles introduce a point of failure.
 This is where decentralised oracles like Chainlink come to play.
-Chainlink networks can be customised to give us any kind of feature or result we want. CHainlink has many features- Chainlink data feeds,
+Chainlink networks can be customised to give us any kind of feature or result we want. CHainlink has many features- Chainlink data feeds, Chainlink Verifiable Randomness Function (VRF)( which is used to get a provable random number outside the blockchain because blockchains can't compute random numbers because of their deterministic systems(needing to reach a consensus among the nodes)

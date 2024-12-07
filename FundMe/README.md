@@ -44,3 +44,5 @@ Chainlink networks can be customised to give us any kind of feature or result we
 - Chainlink Verifiable Randomness Function (VRF)( which is used to get a provable random number outside the blockchain because blockchains can't compute random numbers because of their deterministic systems(needing to reach a consensus among the nodes). Chainlink VRF is a way to get provably random numbers into our blockchains applications to guarantee fairness and randomness of applications.
 - Chainlink Keepers
 - Chainlink Functions (it allows you to make any API calls and is the future of defi applications)
+
+Oracles can be used to make calls to external API.

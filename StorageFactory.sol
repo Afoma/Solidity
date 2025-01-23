@@ -11,6 +11,8 @@ contract StorageFactory{
         SimpleStorage newSimpleStorage = new SimpleStorage();
         listOfSimpleStorageContracts.push(newSimpleStorage);
     }
+// the code above can be re-written like this
+// listOfSimpleStorageContracts.push(new SimpleStorage();
     function sfStore(uint256 _simpleStorageIndex, uint256 _newSimpleStorageNumber) public{
         SimpleStorage mySimpleStorage = listOfSimpleStorageContracts[_simpleStorageIndex];
         mySimpleStorage.store(_newSimpleStorageNumber);

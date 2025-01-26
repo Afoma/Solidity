@@ -11,16 +11,16 @@ contract StorageFactory{
         SimpleStorage newSimpleStorage = new SimpleStorage();
         listOfSimpleStorageContracts.push(newSimpleStorage);
     }
-// the code above can be re-written like this
-// listOfSimpleStorageContracts.push(new SimpleStorage();
-    function sfStore(uint256 _simpleStorageIndex, uint256 _newSimpleStorageNumber) public{
-        SimpleStorage mySimpleStorage = listOfSimpleStorageContracts[_simpleStorageIndex];
-        mySimpleStorage.store(_newSimpleStorageNumber);
+    // the code above can be re-written like this
+    // listOfSimpleStorageContracts.push(new SimpleStorage();
+       function sfStore (uint256 _simplestorageIndex, uint256 _newSimpleStorageNumber) public{
+        listOfSimpleStorageContracts[_simplestorageIndex].store(_newSimpleStorageNumber);
+        // here we are storing the SimpleStorage contracts indices
     }
-    function sfGet(uint256 _simpleStorageIndex) public view returns(uint256){
-        SimpleStorage mySimpleStorage = listOfSimpleStorageContracts[_simpleStorageIndex];
-        return mySimpleStorage.retrieve();
+        function sfGet (uint256 _simplestorageIndex) public view returns(uint256){
+        return listOfSimpleStorageContracts[_simplestorageIndex].retrieve();
     }
+
         function getlistOfSimpleStorageContractsLength() public view returns(uint256){
         return listOfSimpleStorageContracts.length;
     }

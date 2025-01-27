@@ -24,6 +24,10 @@ contract SimpleStorage {
     // whatever number I put in this function will be stored in/as myFavouriteNumber
 
     function store(uint256 _favouriteNumber) public virtual{
+
+    // refactored `function store` to be overrideable(that way the function store of a contract that imports
+    // `contract SimpleStorage` can work without throwing an error
+
         myFavouriteNumber = _favouriteNumber;
     }
 

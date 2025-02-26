@@ -1,58 +1,49 @@
 // SPDX-License-Identifier: MIT
-pragma solidity ^0.8.18; //solidity versions
+pragma solidity ^0.8.24;
+import {AggregatorV3Interface} from "@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol";
 
-contract SimpleStorage {
+contract FundMe{
+    // Get Funds
+    // Withdraw funds
+    // Set minimum funding vaLue in USD
+    uint256 public minUsd = 5e18;
+
+    address[] public funders;
+    mapping (address payer =>uint256 amountPaid) public payerToAmountPaid;
+
+    function fund() public payable{
+    // Allow users to send $
+    // Have minimum $ sent
+    // How do we send ETH to this contract
+        require(getConversionRate(msg.value) >= minUsd, "not enough ETH");
+        funders.push(msg.sender);
+        payerToAmountPaid[msg.sender] = payerToAmountPaid[msg.sender] + msg.value;
+    }
+    function getPrice() public view returns(uint256){
+        // Address 0x694AA1769357215DE4FAC081bf1f309aDC325306
+        // ABI
+        AggregatorV3Interface dataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
+        (,int256 answer, , ,) = dataFeed.latestRoundData();
+        return uint256(answer * 1e10);
+        // Price of ETH in USD
+        // 200000000000
+        // `answer` is in int256 data type because some price feeds could be in the negative
+        // and `int` stands for integer which could be positive or negative
+    }
+
+    function getConversionRate(uint256 ethAmount) public view returns(uint256){
+        uint256 ethPrice = getPrice();
+        uint256 ethAmountInUsd = (ethPrice * ethAmount) / 1e18;
+        return ethAmountInUsd;
+    }
+
+    function getDecimals() public view returns(uint8){
+        AggregatorV3Interface dataFeed = AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306);
+        return dataFeed.decimals();
+    }
     
-    // a state variable that allows for only the storage of figures
-    uint256 public myFavouriteNumber;
-
-    // a custom variable. Solidity allows the creation of custom variables, it is
-    // also a storage variable. State variables- variables that are defined outside 
-    // the scope of a function are storage variables.
-
-    struct Person{
-        uint256 favouriteNumber;
-        string name;
+    function getVersion() public view returns(uint256){
+        return AggregatorV3Interface(0x694AA1769357215DE4FAC081bf1f309aDC325306).version();
     }
-
-    Person[] public listOfPeople; 
-
-    // this maps or links a string to a number, just like in a dictionary
-
-    mapping(string => uint256) public nameToFavouriteNumber;
-
-    // whatever number I put in this function will be stored in/as myFavouriteNumber
-
-    function store(uint256 _favouriteNumber) public virtual{
-
-    // refactored `function store` to be overrideable(that way the function store of a contract that imports
-    // `contract SimpleStorage` can work without throwing an error
-
-        myFavouriteNumber = _favouriteNumber;
-    }
-
-    // if I want to retrieve the current value of uint256 myFavouriteNumber
-
-    function retrieve() public view returns(uint256){
-    return myFavouriteNumber;
-    }
-
-    // if I want to add names and favourite numbers to the listOfPeople array
-    // if I also want to search for the favourite number that is mapped to 
-    // the name of the person that I'm searching for
-
-    function addPerson(string memory _name, uint256 _favouriteNumber) public {
-        // Person memory newPerson = Person(_name, _favNumber);
-        // listOfPeople.push(newPerson);
-        listOfPeople.push(Person(_favouriteNumber,_name));
-        nameToFavouriteNumber[_name] = _favouriteNumber;
-    }
-
-    // if I want to return the entire list of people in one go
-
-    function displayListOfPeople() public view returns(Person[] memory){
-        return listOfPeople;
-    }
-
 
 }

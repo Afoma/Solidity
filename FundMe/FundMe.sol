@@ -6,13 +6,13 @@ contract FundMe{
     // Get Funds
     // Withdraw funds
     // Set minimum funding vaLue in USD
-    uint256 public minUsd = 5;
+    uint256 public minUsd = 5e18;
 
     function fund() public payable{
     // Allow users to send $
     // Have minimum $ sent
     // How do we send ETH to this contract
-        require(msg.value >= minUsd, "didn't send enough ETH");
+        require(getConversionRate(msg.value) >= minUsd, "not enough ETH");
     }
     function getPrice() public view returns(uint256){
         // Address 0x694AA1769357215DE4FAC081bf1f309aDC325306
